@@ -3,23 +3,23 @@ class AgendaApp {
     agenda;
 
     constructor() {
-        this.api = new API();
-        // this.api.getData().then(result => {
-
-        // });
-        this.agenda = new Agenda();
+        this.api = new API(); // hier meken we die api aan
+        this.api.getData().then(result => {
+            this.agenda = new Agenda(result[0]);
+        });
     }
 }
 
 class API {
-    constructor(){
-        this.getData();
-    }
+    dataFromAPI = [];
 
-    getData(){
-        fetch("../data/data.json").then(response => {
-            console.log(response);
-        })
+    async getData() { // get data gebeurd in de achtergrond door async
+        await fetch("../data/data.json").then(response => {
+            return response.json(); // haal de echte data eruit
+        }).then(data => {
+            this.dataFromAPI = data.months;
+        });
+        return this.dataFromAPI; // hij geeft de data pas terug als het bovenste klaar is
     }
 }
 
@@ -28,10 +28,12 @@ class Agenda {
     header;
     month;
 
-    constructor() {
+    constructor(data) {
+        this.data = data;
+        console.log(data);
         this.renderer = new Renderer();
-        this.header = new Header();
-        this.month = new Month(this);
+        this.header = new Header(data.name);
+        this.month = new Month(this, data.days);
     }
 }
 
@@ -40,14 +42,21 @@ class Renderer {
 }
 
 class Header {
-
+    nameOfMonth;
+    constructor(nameOfMonth){
+        this.nameOfMonth = nameOfMonth;
+        console.log(nameOfMonth);
+    }
 }
 
 class Month {
     days = [];
     agenda;
+    numberOfDays;
 
-    constructor(agenda) {
+    constructor(agenda, numberOfDays) {
+        this.numberOfDays = numberOfDays;
+        console.log(numberOfDays);
         this.agenda = agenda;
         for (let i = 0; i < 31; i++) {
             this.days.push(new Day(this));
