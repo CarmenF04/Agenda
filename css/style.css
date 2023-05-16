@@ -9,7 +9,17 @@ html {
 }
 
 body {
-  background: green;
+  background: linear-gradient(to right, #654ea3, #eaafc8);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agenda {
+  width: 40rem;
+  aspect-ratio: 1/1;
+  background: black;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,7 @@
+@use "../scss/abstracts/mixins";
+
 body{
-    background: green;
+    background: linear-gradient(to right, #654ea3, #eaafc8);
+    min-height: 100vh;
+    @include mixins.flexCenter;
 }
