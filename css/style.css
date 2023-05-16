@@ -19,7 +19,20 @@ body {
 .agenda {
   width: 40rem;
   aspect-ratio: 1/1;
-  background: black;
+  background: #eee;
+  border-radius: 2rem;
+}
+.agenda__header {
+  background: #e74646;
+  height: 20%;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+.agenda__month {
+  height: 80%;
+  background: green;
+  padding: 2rem;
+  display: flex;
 }
 
 /*# sourceMappingURL=style.css.map */
