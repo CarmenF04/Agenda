@@ -14,25 +14,65 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 3rem;
+  font-size: 2rem;
+  font-family: "Roboto Slab", serif;
 }
 
 .agenda {
-  width: 40rem;
+  width: 50rem;
   aspect-ratio: 1/1;
   background: #eee;
   border-radius: 2rem;
+  right: 4rem;
+  bottom: 4rem;
+  box-shadow: 0 2rem 1rem 0 rgba(0, 0, 0, 0.5);
 }
 .agenda__header {
-  background: #e74646;
+  background: #7946e7;
   height: 20%;
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.agenda__button {
+  background: none;
+  border: none;
+  font-size: 200%;
+}
+.agenda__button:hover {
+  cursor: pointer;
 }
 .agenda__month {
   height: 80%;
-  background: green;
   padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1rem;
+  list-style: none;
+}
+.agenda__day {
+  background: #c8c8c8;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.agenda__day:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 62.5rem) {
+  .agenda {
+    position: static;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
